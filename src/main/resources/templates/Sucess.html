@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ticket Confirmation</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .fade-in {
+      animation: fadeInAnimation ease 2s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes fadeInAnimation {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1 class="mt-5">Ticket Confirmation</h1>
+
+  <div id="confirmationSection" class="mt-5">
+    <h2 class="mb-4">Confirmation</h2>
+    <p id="confirmationMessage" class="fade-in"></p>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    showConfirmation();
+  });
+
+  function showConfirmation() {
+    // Show confirmation section with fade-in animation
+    $("#confirmationSection").addClass("fade-in");
+
+    // Display confirmation message
+    $("#confirmationMessage").text("Ticket confirmed. Thank you for your purchase! You will get the conformation message");
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Local Train Booking System - Search Trains</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    /* Add your custom styles here */
+    body {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+<h1>Search Trains</h1>
+
+<div class="container">
+  <form action="/trainSearchForm" method="post">
+    <div class="form-group">
+      <label for="source">Source Station:</label>
+      <select class="form-control" id="source" name="source">
+        <option value="stationA">Station A</option>
+        <option value="stationB">Station B</option>
+        <option value="stationC">Station C</option>
+        <option value="stationK">Station K</option>
+        <option value="stationL">Station L</option>
+        <option value="stationN">Station N</option>
+        <option value="stationR">Station R</option>
+        <option value="stationS">Station S</option>
+        <option value="stationT">Station T</option>
+        <option value="stationM">Station M</option>
+        <option value="stationO">Station O</option>
+        <option value="stationQ">Station Q</option>
+        <option value="stationR">Station Y</option>
+        <option value="stationU">Station U</option>
+        <option value="stationV">Station V</option>
+        <option value="stationW">Station W</option>
+        <option value="stationX">Station X</option>
+        <option value="stationY">Station Y</option>
+        <!-- Add more options for source stations -->
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="destination">Destination Station:</label>
+      <select class="form-control" id="destination" name="destination">
+        <option value="stationX">Station X</option>
+        <option value="stationY">Station Y</option>
+        <option value="stationZ">Station Z</option>
+        <!-- Add more options for destination stations -->
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="date">Date:</label>
+      <input type="date" class="form-control" id="date" name="date">
+    </div>
+    <div class="form-group">
+      <label for="trainType">Train Type:</label>
+      <select class="form-control" id="trainType" name="trainType">
+        <option value="all">All</option>
+        <option value="express">Express</option>
+        <option value="local">Local</option>
+      </select>
+    </div>
+    <!-- Add more search filters if needed -->
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+</div>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Train Number</th>
+      <th>Train Name</th>
+      <th>Source</th>
+      <th>Destination</th>
+      <th>Departure Time</th>
+      <th>Arrival Time</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="train : ${trains}">
+      <td th:text="${train.getId()}"></td>
+      <td th:text="${train.getTrainName()}"></td>
+      <td th:text="${train.source}"></td>
+      <td th:text="${train.destination}"></td>
+      <td th:text="${train.getEndTime()}"></td>
+      <td th:text="${train.getStartTime()}"></td>
+      <td><a th:href="@{/BookTicket/{id}(id=${train.getTrainName()})}">Book</a></td>
+
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- Custom JS -->
+<script>
+  // Add your custom JavaScript here
+  // ...
+</script>
+</body>
+</html>

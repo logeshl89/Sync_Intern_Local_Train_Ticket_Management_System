@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Local Train Booking System - Payment</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    /* Add your custom styles here */
+    body {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+<h1>Payment</h1>
+
+<div class="container">
+  <span class = "label label-primary" th:text="${PassangerTicketPrice}">Primary Label</span>
+  <form action="/processPayment" method="POST">
+    <div class="form-group">
+      <label for="cardNumber">Card Number:</label>
+      <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="Enter card number">
+    </div>
+    <div class="form-group">
+      <label for="expiryDate">Expiry Date:</label>
+      <input type="text" class="form-control" id="expiryDate" name="expiryDate" placeholder="MM/YYYY">
+    </div>
+    <div class="form-group">
+      <label for="cvv">CVV:</label>
+      <input type="password" class="form-control" id="cvv" name="cvv" placeholder="Enter CVV">
+    </div>
+    <!-- Add more payment fields if needed -->
+
+    <button type="submit" class="btn btn-primary">Make Payment</button>
+    <div th:text="${error}"></div>
+  </form>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- Custom JS -->
+<script>
+  // Add your custom JavaScript here
+  // ...
+</script>
+</body>
+</html>
